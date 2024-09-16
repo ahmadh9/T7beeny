@@ -19,6 +19,7 @@ body {
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100%; 
 }
 
 h1 {
@@ -36,6 +37,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     gap: 20px;
+    flex-wrap: wrap; 
 }
 
 button {
@@ -44,25 +46,33 @@ button {
     border-radius: 10px;
     font-size: 1.2em;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; 
 }
 
 button.runaway {
     background-color: #ff99cc;
     color: white;
+    position: relative;
+    transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
 }
 
 button.stable {
     background-color: #ff66b2;
     color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); 
 }
 
 button.runaway:hover {
-    transform: none;
+    cursor: not-allowed; 
+}
+
+button.stable:hover {
+    background-color: #ff4081;
+    cursor: pointer; 
 }
 
 .answer {
@@ -81,4 +91,43 @@ button.back {
     background-color: #ff66b2;
     color: white;
     font-size: 1.2em;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em; 
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 10px 20px; 
+        font-size: 1.1em;    
+        margin: 10px 0;     
+    }
+
+    .answers {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .container {
+        padding: 20px; 
+        width: 90%;    
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.7em; 
+    }
+
+    button {
+        padding: 8px 15px;  
+        font-size: 1em;     
+    }
+
+    .container {
+        padding: 15px; 
+    }
 }
